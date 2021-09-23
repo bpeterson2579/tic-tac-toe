@@ -1,0 +1,58 @@
+body {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0px;
+  background-color: white;
+}
+
+.game-section {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tic-tac-toe-square {
+  height: 20vh;
+  width: 10vw;
+  border: 0px;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.top-row,
+.middle-row,
+.bottom-row {
+  display: flex;
+}
+
+.top-row,
+.middle-row {
+  border-bottom: 5px solid blue;
+}
+
+.right {
+  border-right: 5px solid blue;
+}
+
+.left {
+  border-left: 5px solid blue;
+}
+
+.players-section {
+  background-image: linear-gradient(#fcdf03, #f2960c, #f20c0c);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 100px 9vw 1000px;
+}
+
+.player-token {
+  height: 75px;
+  width: 75px;
+}
+
+.player-wins {
+  font-size: 24pt;
+}

@@ -6,13 +6,38 @@
     <title>❌Tic Tac Toe⭕️</title>
   </head>
   <body>
-    <section class="player-one-section">
-      <img src="assets/red-letter-o.svg">
+    <section class="players-section">
+      <img src="assets/red-letter-o.svg" alt="Letter O" class="player-token">
+      <p class="player-wins" id="playerOneWins">0 wins</p>
+      <div class="wins-area" id="p1WinsArea">
+      </div>
     </section>
     <section class="game-section">
+      <h1>It's Player Turn</h1>
+      <div class="top-row">
+        <button class="tic-tac-toe-square right" id="1"></button>
+        <button class="tic-tac-toe-square" id="2"></button>
+        <button class="tic-tac-toe-square left" id="3"></button>
+      </div>
+      <div class="middle-row">
+        <button class="tic-tac-toe-square right" id="4"></button>
+        <button class="tic-tac-toe-square" id="5"></button>
+        <button class="tic-tac-toe-square left" id="6"></button>
+      </div>
+      <div class="bottom-row">
+        <button class="tic-tac-toe-square right" id="7"></button>
+        <button class="tic-tac-toe-square" id="8"></button>
+        <button class="tic-tac-toe-square left" id="9"></button>
+      </div>
     </section>
-    <section class="player-two-section">
-      <img src="assets/red-letter-x.svg">
+    <section class="players-section">
+      <img src="assets/red-letter-x.svg" alt="Letter X" class="player-token">
+      <p class="player-wins" id="playerTwoWins">0 wins</p>
+      <div class="wins-area" id="p2WinsArea">
+      </div>
     </section>
   </body>
+  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="Player.js"></script>
+  <script type="text/javascript" src="Game.js"></script>
 </html>
