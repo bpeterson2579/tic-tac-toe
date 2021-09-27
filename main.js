@@ -71,12 +71,12 @@ function markSquare(event) {
 function displayWins() {
   if (game.playerTurn === '⭕️') {
     playerOneWins.innerText = `${game.playerOne.wins} wins`;
-    playerWinMessage.classList.remove('hidden');
+    show(playerWinMessage);
     hide(whichTurn);
     playerWinMessage.innerText = `Player ⭕️ wins!`
   }else {
     playerTwoWins.innerText = `${game.playerTwo.wins} wins`;
-    playerWinMessage.classList.remove('hidden');
+    show(playerWinMessage);
     hide(whichTurn);
     playerWinMessage.innerText = `Player ❌ wins!`
   }
