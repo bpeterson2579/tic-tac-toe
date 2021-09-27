@@ -1,5 +1,5 @@
 class Player {
-  constructor(icon) {
+  constructor(icon, wins) {
     this.icon = icon;
     this.moves = [];
     this.turn = false;
@@ -7,10 +7,7 @@ class Player {
   }
 
   saveToStorage() {
-    
-  }
-
-  retrieveFromStorage() {
-
+    var stringifiedIdeas = JSON.stringify(game);
+    localStorage.setItem(`stringWins`, stringifiedIdeas);
   }
 }

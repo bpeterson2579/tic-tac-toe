@@ -8,21 +8,20 @@ class Game {
   gameTurn(event) {
     var gamePad = [topLeft.id, topMiddle.id, topRight.id, middleLeft.id, middleMiddle.id, middleRight.id, bottomLeft.id, bottomMiddle.id, bottomRight.id];
     var eventId = event.target.id;
-    
+
     for (var i = 0; i < gamePad.length; i++) {
       if (eventId === gamePad[i] && game.playerTurn === '⭕️') {
         markSquare(event);
         game.playerOne.moves.push(i);
-        game.playerOne.moves.sort();
         this.gameWin(this.playerOne);
         this.playerTurn = '❌';
       }else if (eventId === gamePad[i] && game.playerTurn === '❌') {
         markSquare(event);
         game.playerTwo.moves.push(i);
-        game.playerTwo.moves.sort();
         this.gameWin(this.playerTwo);
         this.playerTurn = '⭕️';
       }
+      this.gameDraw();
     }
   }
 
@@ -62,12 +61,24 @@ class Game {
     }else {
       return
     }
+    player.saveToStorage();
     displayWins();
     disableButtons();
-    setTimeout(resetGame, 3000);
+    setTimeout(this.resetGame, 3000);
   }
 
   gameDraw() {
+    if (this.playerOne.moves.length > 4 || this.playerTwo.moves.length > 4) {
+      playerWinMessage.innerText = "This game is a Draw!";
+      show(playerWinMessage);
+      hide(whichTurn);
+      setTimeout(this.resetGame, 3000);
+    }
+  }
 
+  resetGame() {
+    enableButtons();
+    show(whichTurn);
+    hide(playerWinMessage);
   }
 }
