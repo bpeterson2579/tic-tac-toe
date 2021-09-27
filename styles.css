@@ -17,6 +17,7 @@ body {
   height: 20vh;
   width: 10vw;
   border: 0px;
+  font-size: 60pt;
   background-color: inherit;
   cursor: pointer;
 }
@@ -53,6 +54,20 @@ body {
   width: 75px;
 }
 
+.player-token:hover {
+  transition: 1.5s ease-in-out;
+  transform: rotateY(360deg);
+}
+
 .player-wins {
   font-size: 24pt;
+  color: blue;
+}
+
+.player-win-message {
+  font-size: 40pt;
+}
+
+.hidden {
+  display: none!important;
 }
