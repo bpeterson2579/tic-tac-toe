@@ -1,9 +1,12 @@
 body {
-  height: 100%;
   display: flex;
   justify-content: space-between;
   margin: 0px;
   background-color: white;
+}
+
+h1 {
+  font-size: 30pt;
 }
 
 .game-section {
@@ -66,6 +69,11 @@ body {
 
 .player-win-message {
   font-size: 40pt;
+}
+
+.clear-button {
+  margin-top: 60px;
+  cursor: pointer;
 }
 
 .hidden {
