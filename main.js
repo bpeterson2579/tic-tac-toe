@@ -1,3 +1,4 @@
+var game;
 
 var topLeft = document.getElementById('1');
 var topMiddle = document.getElementById('2');
@@ -13,20 +14,27 @@ var whichTurn = document.getElementById('whichTurn');
 var playerOneWins = document.getElementById('playerOneWins');
 var playerTwoWins = document.getElementById('playerTwoWins');
 var playerWinMessage = document.getElementById('playerWinMessage');
-
-var game;
-var playerOne;
-var playerTwo;
+var clearButton = document.getElementById('clearLocalStorage')
 
 document.addEventListener('DOMContentLoaded', startGame);
 gameArea.addEventListener('click', makeTurn);
+clearButton.addEventListener('click', clearLocalStorage);
 
 function startGame() {
-  playerOne = new Player('⭕️')
-  playerTwo = new Player('❌');
+  var playerOne = new Player('⭕️');
+  var playerTwo = new Player('❌');
+
+  if (localStorage.hasOwnProperty("stringWins")) {
+    game = retrieveFromStorage();
+    playerOne.wins = game.playerOne.wins;
+    playerTwo.wins = game.playerTwo.wins;
+  }
 
   game = new Game(playerOne, playerTwo);
   game.playerOne.turn = true;
+
+  playerOneWins.innerText = `${game.playerOne.wins} wins`;
+  playerTwoWins.innerText = `${game.playerTwo.wins} wins`;
 }
 
 function makeTurn() {
@@ -115,10 +123,14 @@ function enableButtons() {
   bottomRight.innerText = ''
 }
 
-function resetGame() {
-  enableButtons();
-  show(whichTurn);
-  hide(playerWinMessage);
+function retrieveFromStorage() {
+  var retrievedWins = localStorage.getItem("stringWins");
+  return JSON.parse(retrievedWins);
+}
+
+function clearLocalStorage() {
+  localStorage.clear();
+  startGame();
 }
 
 function show(element) {
