@@ -7,7 +7,7 @@ class Player {
   }
 
   saveToStorage() {
-    var stringifiedIdeas = JSON.stringify(game);
-    localStorage.setItem(`stringWins`, stringifiedIdeas);
+    var stringifiedWins = JSON.stringify(game);
+    localStorage.setItem(`stringWins`, stringifiedWins);
   }
 }
